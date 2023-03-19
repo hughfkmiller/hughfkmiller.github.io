@@ -1,0 +1,118 @@
+---
+title: "HousingPrices"
+output: html_document
+date: "2023-03-06"
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+train <- read.csv("train.csv", header=TRUE, stringsAsFactors =TRUE)
+
+
+library(tidyverse)
+
+
+
+```
+
+## Data Mutations
+```{r}
+
+train <- train %>%
+  mutate(TotalSF = X1stFlrSF + X2ndFlrSF + TotalBsmtSF,
+                RichNbrhd = case_when(Neighborhood %in% c("StoneBr", "NridgHt", "NoRidge") ~ 1,
+                                                          TRUE ~ 0))
+
+train <- train %>%
+  mutate(TotalSF2 = ifelse(TotalSF > 7000, 2567.049, TotalSF))
+
+```
+
+The code above shows the data mutates I made in order to create my model. The first mutation done created a total square footage variable by simply adding the first floor, second floor, and basement square footage of each house. Since each of these variables had a good correlation with sales price, the total square footage variable proved to be very useful in explaining sales price as well.
+
+The second mutation was done create an "off-on" switch for whether a home is in a rich neighborhood or not. I found the three neighborhoods had significantly higher median prices compared to other neighborhoods, which is why I decided to do this.
+
+The last mutation makes it so any home with a total square footage greater than 7000 is treated as a home with average square footage. This is to handle to extreme outliers in the dataset that were both very large homes with very low selling prices. Because of these outliers, any model I created "broke down" after 7000 square feet and we might as well "guess the average" for any home bigger than that.
+
+## My Model
+
+```{r}
+library(pander)
+
+lm1 <- lm(SalePrice ~ TotalSF2 + OverallQual + YearBuilt + RichNbrhd:TotalSF2 + RichNbrhd + RichNbrhd:OverallQual + RichNbrhd:YearBuilt , data=train)
+pander(summary(lm1))
+
+```
+
+Above is the model I was able to create to predict housing prices. This model uses three quantitative variables - total square footage, overall quality, and year built - and one on-off switch - is it in a rich neighborhood? I choose these three quantitative variables because they all had an apparent correlation with sales price on their own. We can see that all betas in this model are significant at a level of significance of $\alpha$=0.05.
+
+The model is mathematically expressed as follows:
+
+$$
+Y = \beta_0 + \beta_1 \underbrace{X_1}_\text{Total SF} + \beta_2 \underbrace{X_2}_\text{Overall Qual} + \beta_3 \underbrace{X_3}_\text{Year Built} + \beta_4 \underbrace{X_5}_\text{Rich Nbrhd} + \beta_5 X_1 X_5 + \beta_6 X_2 X_5 + \beta_7 X_3 X_5 
+$$
+
+A great aspect of this model is that it is rather interpretable. On the baseline model (switch for rich neighborhoods is off), we see that for every additional square foot on a home, holding all other variables constant, the selling price increases by 45.18. Similarly, each upgrade in quality increases the selling price by 17,107, all else being equal; each year newer a home is increases the sales price by $344, all else being equal. When a home is in a rich neighborhood, the slope for square footage, quality, and year built all change to 96.27, 26266, and 2445, respectively. 
+
+## Visual of Model
+
+```{r}
+b <- coef(lm1)
+
+par(mfrow=c(1,3))
+
+plot(SalePrice ~ TotalSF2, data=train, col=c("skyblue","orange")[as.factor(RichNbrhd)], main="Square Footage Dimension")
+curve(b[1] + b[2]*x + b[3]*6 + b[4]*1973, add=TRUE, col="skyblue")
+curve((b[1] + b[5]) + (b[2]+b[6])*x + (b[3]+b[7])*8 + (b[4]+b[8])*2004, add=TRUE, col="orange")
+
+plot(SalePrice ~ OverallQual, data=train, col=c("skyblue","orange")[as.factor(RichNbrhd)], main="Ovl Quality Dimension")
+curve(b[1] + b[2]*2474 + b[3]*x + b[4]*1973, add=TRUE, col="skyblue")
+curve((b[1] + b[5]) + (b[2]+b[6])*3569 + (b[3]+b[7])*x + (b[4]+b[8])*2004, add=TRUE, col="orange")
+
+plot(SalePrice ~ YearBuilt, data=train, col=c("skyblue","orange")[as.factor(RichNbrhd)], main="Year Built Dimension")
+curve(b[1] + b[2]*2474 + b[3]*6 + b[4]*x, add=TRUE, col="skyblue")
+curve((b[1] + b[5]) + (b[2]+b[6])*3569 + (b[3]+b[7])*8 + (b[4]+b[8])*x, add=TRUE, col="orange")
+
+```
+
+
+
+## Model Validation
+
+```{r}
+##Validation
+
+set.seed(121)
+
+
+num_rows <- 1000 #1460 total
+keep <- sample(1:nrow(train), num_rows)
+
+mytrain <- train[keep, ] #Use this in the lm(..., data=mytrain) it is like "rbdata"
+
+mytest <- train[-keep, ] #Use this in the predict(..., newdata=mytest) it is like "rbdata2"
+
+houselm <- lm(SalePrice ~ TotalSF2 + OverallQual + YearBuilt + RichNbrhd:TotalSF2 + RichNbrhd + RichNbrhd:OverallQual + RichNbrhd:YearBuilt , data=train)
+
+yhv <- predict(houselm, newdata=mytest)
+
+ybar <- mean(mytest$SalePrice)
+
+SSTO <- sum( (mytest$SalePrice - ybar)^2 )
+
+SSEv <- sum( (mytest$SalePrice - yhv)^2 )
+
+rsv <- 1 - SSEv/SSTO
+
+n <- length(mytest$SalePrice) #sample size
+  pv <- length(coef(houselm)) #num. parameters in model
+  rstv <- 1 - (n-1)/(n-pv)*SSEv/SSTO
+  
+my_output_table2 <- data.frame(Model = "My Model", `Original R2` = summary(houselm)$r.squared, `Orig. Adj. R-squared` = summary(houselm)$adj.r.squared, `Validation R-squared` = rsv, `Validation Adj. R^2` = rstv)
+
+colnames(my_output_table2) <- c("Model", "Original $R^2$", "Original Adj. $R^2$", "Validation $R^2$", "Validation Adj. $R^2$")
+
+knitr::kable(my_output_table2, escape=TRUE, digits=4)
+
+```
