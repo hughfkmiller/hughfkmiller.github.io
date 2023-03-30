@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>BYU Baseball</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="byubaseball_files/libs/clipboard/clipboard.min.js"></script>
+<script src="byubaseball_files/libs/quarto-html/quarto.js"></script>
+<script src="byubaseball_files/libs/quarto-html/popper.min.js"></script>
+<script src="byubaseball_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="byubaseball_files/libs/quarto-html/anchor.min.js"></script>
+<link href="byubaseball_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="byubaseball_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="byubaseball_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="byubaseball_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="byubaseball_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">BYU Baseball</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="which-utah-school-produces-the-most-success-pro-baseball-players" class="level2">
+<h2 class="anchored" data-anchor-id="which-utah-school-produces-the-most-success-pro-baseball-players">Which Utah School Produces the Most Success Pro Baseball Players?</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Lahman)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(priceR)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>names <span class="ot">&lt;-</span> <span class="fu">select</span>(People, <span class="fu">c</span>(<span class="st">"playerID"</span>, <span class="st">"nameFirst"</span>, <span class="st">"nameLast"</span>))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>schoolnames <span class="ot">&lt;-</span> <span class="fu">select</span>(Schools, <span class="fu">c</span>(<span class="st">"schoolID"</span>, <span class="st">"name_full"</span>, <span class="st">"state"</span>))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">left_join</span>(CollegePlaying, names, <span class="at">by=</span><span class="st">"playerID"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(data, schoolnames, <span class="at">by=</span><span class="st">"schoolID"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>data3 <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(data2, Salaries, <span class="at">by=</span><span class="st">"playerID"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data3)[<span class="dv">3</span>] <span class="ot">=</span> <span class="st">"School_year"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data3)[<span class="dv">8</span>] <span class="ot">=</span> <span class="st">"Pro_year"</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>utah_player <span class="ot">&lt;-</span> data3 <span class="sc">%&gt;%</span> </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state<span class="sc">==</span><span class="st">"UT"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unite</span>(<span class="st">"full_name"</span>, nameFirst, nameLast, <span class="at">sep=</span><span class="st">" "</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(utah_player)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">adjust_for_inflation</span>(<span class="at">price =</span> utah_player<span class="sc">$</span>salary, <span class="at">from_date =</span> utah_player<span class="sc">$</span>Pro_year, <span class="at">country =</span> <span class="st">"US"</span>, <span class="at">to_date =</span> <span class="dv">2021</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Generating URL to request all 299 results
+Retrieving inflation data for US 
+Generating URL to request all 62 results</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1]   321381.3   465030.6   675944.6   677606.5  1343874.5  3050751.0
+  [7]  4457691.5  4564358.6  5959597.8  7735218.7  6046503.8  5190937.5
+ [13]  4571341.8  6994866.7  5507515.2   321381.3   465030.6   675944.6
+ [19]   677606.5  1343874.5  3050751.0  4457691.5  4564358.6  5959597.8
+ [25]  7735218.7  6046503.8  5190937.5  4571341.8  6994866.7  5507515.2
+ [31]   321381.3   465030.6   675944.6   677606.5  1343874.5  3050751.0
+ [37]  4457691.5  4564358.6  5959597.8  7735218.7  6046503.8  5190937.5
+ [43]  4571341.8  6994866.7  5507515.2   253216.5   330222.8   441898.6
+ [49]   253216.5   330222.8   441898.6   193825.0   193825.0   193825.0
+ [55]   439537.6   517848.2   439537.6   517848.2   439537.6   517848.2
+ [61]   572863.5   572863.5   496610.9   969086.3   820978.8  3727992.4
+ [67]  6926655.3  9677747.5  5815872.7  9156851.8 10289252.5   519154.4
+ [73]   519154.4   519154.4   314844.6   466939.5   160690.6   429259.0
+ [79]   779054.7  2010961.3  3629290.6  4178203.3  8110746.8  8253361.9
+ [85]  8409248.4  8535413.8  4405309.9  6414817.0  6233647.9  4622598.3
+ [91]  5295238.3   306065.2   160690.6   429259.0   779054.7  2010961.3
+ [97]  3629290.6  4178203.3  8110746.8  8253361.9  8409248.4  8535413.8
+[103]  4405309.9  6414817.0  6233647.9  4622598.3  5295238.3   306065.2
+[109]   160690.6   429259.0   779054.7  2010961.3  3629290.6  4178203.3
+[115]  8110746.8  8253361.9  8409248.4  8535413.8  4405309.9  6414817.0
+[121]  6233647.9  4622598.3  5295238.3   306065.2   944657.5  1112473.7
+[127]  1252005.4   859251.6   928976.7   994810.3   944657.5  1112473.7
+[133]  1252005.4   859251.6   928976.7   994810.3   944657.5  1112473.7
+[139]  1252005.4   859251.6   928976.7   994810.3   944657.5  1112473.7
+[145]  1252005.4   859251.6   928976.7   994810.3   332921.8   455892.0
+[151]   473414.0   457879.3  1115645.8  1960306.2  3932980.2  5367938.6
+[157]  5281322.6  6324337.4  6491172.1   872380.9   332921.8   455892.0
+[163]   473414.0   457879.3  1115645.8  1960306.2  3932980.2  5367938.6
+[169]  5281322.6  6324337.4  6491172.1   872380.9   502333.1   502333.1
+[175]   502333.1   502333.1  2229391.7  2163143.3  4411828.7  4555178.9
+[181]  4347610.9  4355148.7  7361596.3  8593529.3 10176020.0   639834.1
+[187]  1828097.5  2229391.7  2163143.3  4411828.7  4555178.9  4347610.9
+[193]  4355148.7  7361596.3  8593529.3 10176020.0   639834.1  1828097.5
+[199]   149048.3   177578.7   318636.5   430376.4   490615.3   430376.4
+[205]   490615.3   430376.4   490615.3   148329.8   214629.5   423897.4
+[211]   743181.4  1451716.2  1591696.5  1091088.6  2813646.1  2742146.2
+[217]   148329.8   214629.5   423897.4   743181.4  1451716.2  1591696.5
+[223]  1091088.6  2813646.1  2742146.2   148329.8   214629.5   423897.4
+[229]   743181.4  1451716.2  1591696.5  1091088.6  2813646.1  2742146.2
+[235]   448946.6   522748.3   521041.2   820978.8   448946.6   522748.3
+[241]   521041.2   820978.8</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>averages <span class="ot">&lt;-</span> utah_player <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Pro_year, name_full) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean=</span><span class="fu">mean</span>(salary))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>salarychart <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>averages) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>Pro_year, <span class="at">y=</span>mean, <span class="at">color=</span>name_full))<span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Average MLB Salary by Season and School"</span>, <span class="at">x=</span><span class="st">"Year"</span>, <span class="at">y=</span><span class="st">"Average Salary (in 2021 U.S. Dollars)"</span>, <span class="at">color=</span><span class="st">"School"</span>) <span class="sc">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>salarychart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="byubaseball_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|length:10</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#|width:14</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># get totals of all players career salaries</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>topplayers <span class="ot">&lt;-</span> utah_player <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(full_name) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total=</span><span class="fu">sum</span>(salary))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># narrow down to just the top 10 players with highest career earnings</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>topplayers2 <span class="ot">&lt;-</span> topplayers <span class="sc">%&gt;%</span> </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(total, <span class="at">n=</span><span class="dv">10</span>, <span class="at">with_ties=</span><span class="cn">FALSE</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># do an inner join with the full player data to get their school names</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>utah_player2 <span class="ot">&lt;-</span> <span class="fu">select</span>(utah_player, <span class="fu">c</span>(<span class="st">"full_name"</span>, <span class="st">"name_full"</span>))</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>topplayers3 <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(utah_player2, topplayers2, <span class="at">by=</span><span class="st">"full_name"</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># drop  based on name</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>topplayers4 <span class="ot">&lt;-</span> topplayers3[<span class="sc">!</span><span class="fu">duplicated</span>(topplayers3<span class="sc">$</span>full_name), ]</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(topplayers4)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>playerschart <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>topplayers4) <span class="sc">+</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(full_name, <span class="sc">-</span>total), <span class="at">y=</span>total<span class="sc">/</span><span class="dv">1000000</span>, <span class="at">fill=</span>name_full)) <span class="sc">+</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x=</span><span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">45</span>, <span class="at">hjust=</span><span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">linetype =</span> <span class="dv">3</span>)) <span class="sc">+</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Top 10 Highest Career Earnings for Utah MLB Players"</span>, <span class="at">subtitle=</span> <span class="st">"Adjusted for inflation to 2021 U.S. Dollars"</span>, <span class="at">x=</span><span class="st">""</span>, <span class="at">y=</span><span class="st">"Total Career Earnings (in Millions)"</span>, <span class="at">fill=</span><span class="st">"School"</span>)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>playerschart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="byubaseball_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The two plots above give us some insight into which Utah college has produced the most successful baseball players. The first plot is a line graph that plots the average professional salary of players for a certain school for each season. Prior to 2000, BYU appears to be the only school that had alumni in the major leagues. After 2000, players from other schools begin to show up, but BYU continued to dominate in terms of average salary. Dixie State was the only real competitor in this metric from 2000 and on.</p>
+<p>The second plot shows the top individual players from this time period in terms of total career earnings (adjusted to inflation). Each player is colored according to their school. We see BYU highly represented in the plot, as six of the top 10 players went to school there. This shows that players from BYU were highly paid and also probably spent more time in the MLB than players who went to other schools. We can conclude that BYU is the most successful Utah school when it comes to producing successful professional baseball players.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
